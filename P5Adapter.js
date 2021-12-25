@@ -19,6 +19,11 @@ class Grid {
         this.data = this.initializeEmptyMatrix(size);
     }
 
+    // Enable indexing from 1 to size, thus the grid is
+    // accessible as Array[1,64][1,64]
+    get(rowIndex,columnIndex) {
+        return this.data[rowIndex-1, columnIndex-1];
+    }
 
     initializeEmptyMatrix(size) {
         const matrix = new Array(size).fill(new Array(size).fill(0));
