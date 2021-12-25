@@ -51,14 +51,24 @@ class Grid {
     }
 }
 
-let adapter = new P5Adapter(8);
+let adapter = new P5Adapter(256);
 
 function setup() {
   createCanvas(P5Adapter.canvasSize, P5Adapter.canvasSize);
 }
 
+// Draw a grid into the canvas
+function drawGrid(grid) {
+    grid.forEach( 
+        (vector, rowIndex) => vector.forEach(
+            (element, columnIndex) => rect(rowIndex * (P5Adapter.canvasSize / adapter.pixels), columnIndex * (P5Adapter.canvasSize / adapter.pixels), P5Adapter.canvasSize / adapter.pixels, P5Adapter.canvasSize / adapter.pixels)
+        )
+    );
+}
+
 function draw() {
   background(P5Adapter.backgroundColor);
+  drawGrid(adapter.getGridInformation());
 }
 
 
