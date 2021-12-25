@@ -22,7 +22,7 @@ class Grid {
     // Enable indexing from 1 to size, thus the grid is
     // accessible as Array[1,64][1,64]
     get(rowIndex,columnIndex) {
-        return this.data[rowIndex-1, columnIndex-1];
+        return this.data[rowIndex-1][columnIndex-1];
     }
 
     // Initialize a matrix of zeroes of dimension size x size.
