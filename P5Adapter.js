@@ -11,6 +11,11 @@ class P5Adapter {
     getGridInformation() {
         return this.grid.getData();
     }
+
+    addData(rowIndex, columnIndex, value) {
+        console.log(`${rowIndex}, ${columnIndex}`);
+        this.grid.set(rowIndex, columnIndex, value);
+    }
 }
 
 class Grid {
@@ -65,6 +70,14 @@ function drawGrid(grid) {
             (element, columnIndex) => rect(rowIndex * (P5Adapter.canvasSize / adapter.pixels), columnIndex * (P5Adapter.canvasSize / adapter.pixels), P5Adapter.canvasSize / adapter.pixels, P5Adapter.canvasSize / adapter.pixels)
         )
     );
+}
+
+function mouseClicked() {
+    performDraw(adapter);
+}
+
+function performDraw(adapter) {
+    adapter.addData(Math.floor(mouseX/(P5Adapter.canvasSize / adapter.pixels)), (Math.floor(mouseY/(P5Adapter.canvasSize / adapter.pixels))), 1);
 }
 
 function draw() {
