@@ -25,12 +25,22 @@ class Grid {
         return this.data[rowIndex-1][columnIndex-1];
     }
 
+    // Enable indexing from 1 to size, thus the grid is
+    // accessible as Array[1,64][1,64]
+    set(rowIndex,columnIndex, value) {
+        this.data[rowIndex-1][columnIndex-1] = value;
+    }
+
     // Initialize a matrix of zeroes of dimension size x size.
     initializeEmptyMatrix(size) {
         const matrix = new Array(size).fill(new Array(size).fill(0));
         console.log(`Initialized empty matrix with size ${size}`);
         console.table(matrix);
         return matrix;
+    }
+
+    print() {
+        console.table(this.data);
     }
 }
 
