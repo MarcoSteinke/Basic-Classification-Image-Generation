@@ -8,8 +8,8 @@ class P5Adapter {
         this.grid = new Grid(pixels);
     }
 
-    drawGrid() {
-
+    getGridInformation() {
+        return this.grid.getData();
     }
 }
 
