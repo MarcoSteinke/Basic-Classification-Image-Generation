@@ -5,10 +5,30 @@ class P5Adapter {
 
     constructor(pixels) {
         this.pixels = pixels;
+        this.grid = new Grid(pixels);
+    }
+
+    drawGrid() {
+
     }
 }
 
-let adapter = new P5Adapter(64);
+class Grid {
+
+    constructor(size) {
+        this.data = this.initializeEmptyMatrix(size);
+    }
+
+
+    initializeEmptyMatrix(size) {
+        const matrix = new Array(size).fill(new Array(size).fill(0));
+        console.log(`Initialized empty matrix with size ${size}`);
+        console.table(matrix);
+        return matrix;
+    }
+}
+
+let adapter = new P5Adapter(8);
 
 function setup() {
   createCanvas(P5Adapter.canvasSize, P5Adapter.canvasSize);
