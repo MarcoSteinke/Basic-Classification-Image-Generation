@@ -51,10 +51,11 @@ class Grid {
     }
 }
 
-let adapter = new P5Adapter(256);
+let adapter = new P5Adapter(128);
 
 function setup() {
-  createCanvas(P5Adapter.canvasSize, P5Adapter.canvasSize);
+    noStroke()
+    createCanvas(P5Adapter.canvasSize, P5Adapter.canvasSize);
 }
 
 // Draw a grid into the canvas
