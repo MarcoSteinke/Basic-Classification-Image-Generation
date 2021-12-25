@@ -25,6 +25,7 @@ class Grid {
         return this.data[rowIndex-1, columnIndex-1];
     }
 
+    // Initialize a matrix of zeroes of dimension size x size.
     initializeEmptyMatrix(size) {
         const matrix = new Array(size).fill(new Array(size).fill(0));
         console.log(`Initialized empty matrix with size ${size}`);
