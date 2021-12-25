@@ -39,6 +39,7 @@ class Grid {
         return matrix;
     }
 
+    // Prints the matrix into a table
     print() {
         console.table(this.data);
     }
