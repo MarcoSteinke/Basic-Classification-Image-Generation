@@ -31,6 +31,12 @@ class Grid {
         this.data[rowIndex-1][columnIndex-1] = value;
     }
 
+    // Return the grid's internal data as two-dimensional array
+    // of dimension size x size
+    getData() {
+        return this.data;
+    }
+
     // Initialize a matrix of zeroes of dimension size x size.
     initializeEmptyMatrix(size) {
         const matrix = new Array(size).fill(new Array(size).fill(0));
