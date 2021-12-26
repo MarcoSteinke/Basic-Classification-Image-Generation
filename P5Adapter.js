@@ -69,11 +69,15 @@ function drawGrid(grid) {
         (vector, rowIndex) => vector.forEach(
             (element, columnIndex) => {
                 color(0)
-                rect(rowIndex * (P5Adapter.canvasSize / adapter.pixels), columnIndex * (P5Adapter.canvasSize / adapter.pixels), P5Adapter.canvasSize / adapter.pixels, P5Adapter.canvasSize / adapter.pixels, color(0));
+                rect(rowIndex * (P5Adapter.canvasSize / adapter.pixels), columnIndex * (P5Adapter.canvasSize / adapter.pixels), P5Adapter.canvasSize / adapter.pixels, P5Adapter.canvasSize / adapter.pixels);
                 color(255)
             }
         )
     );
+}
+
+function mouseDragged() {
+    performDraw(adapter);
 }
 
 function mouseClicked() {
