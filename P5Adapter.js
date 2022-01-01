@@ -1,7 +1,7 @@
 class P5Adapter {
 
     static canvasSize = 500;
-    static backgroundColor = 255;
+    static backgroundColor = 60;
 
     constructor(pixels) {
         this.pixels = pixels;

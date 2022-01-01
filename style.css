@@ -17,10 +17,16 @@ h2, h3 {
 #instructions {
     color: lightgray;
     font-size: 1.44rem;
-    max-width: 400px;
+    max-width: 500px;
 }
 
 .news {
     background-color: green;
     padding: 8px 16px 16px 8px;
+}
+
+input, input:active, input:focus {
+    background-color: rgb(60,60,60) !important;
+    border: none !important;
+    color: white !important;
 }
