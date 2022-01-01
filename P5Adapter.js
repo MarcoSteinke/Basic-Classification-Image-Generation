@@ -1,6 +1,6 @@
 class P5Adapter {
 
-    static canvasSize = 800;
+    static canvasSize = 500;
     static backgroundColor = 220;
 
     constructor(pixels) {
@@ -9,7 +9,7 @@ class P5Adapter {
     }
 
     getGridInformation() {
-        return this.grid.getData();
+        return [...this.grid.getData()].map(entry => entry[0]).map(index => index.split(',')).map(array => { return {rowIndex: Number.parseInt(array[0]), columnIndex: Number.parseInt(array[1])} })
     }
 
     addData(rowIndex, columnIndex, value) {
@@ -21,19 +21,29 @@ class P5Adapter {
 class Grid {
 
     constructor(size) {
-        this.data = this.initializeEmptyMatrix(size);
+        this.data = /*this.initializeEmptyMatrix(size)*/ new Map();
     }
 
     // Enable indexing from 1 to size, thus the grid is
     // accessible as Array[1,64][1,64]
-    get(rowIndex,columnIndex) {
-        return this.data[rowIndex-1][columnIndex-1];
+    // DEPRECATED
+    //get(rowIndex,columnIndex) {
+    //    return this.data[rowIndex-1][columnIndex-1];
+    //}
+
+    get(rowIndex, columnIndex) {
+        return this.data.get(Grid.getStringifiedIndex(rowIndex, columnIndex)) || 0;
     }
 
     // Enable indexing from 1 to size, thus the grid is
     // accessible as Array[1,64][1,64]
-    set(rowIndex,columnIndex, value) {
-        this.data[rowIndex-1][columnIndex-1] = value;
+    // DEPRECATED
+    //set(rowIndex,columnIndex, value) {
+    //    this.data[rowIndex-1][columnIndex-1] = value;
+    //}
+
+    set(rowIndex, columnIndex, value) {
+        this.data.set(Grid.getStringifiedIndex(rowIndex, columnIndex), value);
     }
 
     // Return the grid's internal data as two-dimensional array
@@ -43,16 +53,21 @@ class Grid {
     }
 
     // Initialize a matrix of zeroes of dimension size x size.
-    initializeEmptyMatrix(size) {
-        const matrix = new Array(size).fill(new Array(size).fill(0));
-        console.log(`Initialized empty matrix with size ${size}`);
-        console.table(matrix);
-        return matrix;
-    }
+    // DEPRECATED
+    //initializeEmptyMatrix(size) {
+    //    const matrix = new Array(size).fill(new Array(size).fill(0));
+    //    console.log(`Initialized empty matrix with size ${size}`);
+    //    console.table(matrix);
+    //    return matrix;
+    //}
 
     // Prints the matrix into a table
     print() {
         console.table(this.data);
+    }
+
+    static getStringifiedIndex(rowIndex, columnIndex) {
+        return [rowIndex.toLocaleString(), columnIndex.toLocaleString()].join(',');
     }
 }
 
@@ -65,15 +80,11 @@ function setup() {
 
 // Draw a grid into the canvas
 function drawGrid(grid) {
-    grid.forEach( 
-        (vector, rowIndex) => vector.forEach(
-            (element, columnIndex) => {
-                color(0)
-                rect(rowIndex * (P5Adapter.canvasSize / adapter.pixels), columnIndex * (P5Adapter.canvasSize / adapter.pixels), P5Adapter.canvasSize / adapter.pixels, P5Adapter.canvasSize / adapter.pixels);
-                color(255)
-            }
-        )
-    );
+    grid.forEach(
+        point => {
+            rect(point.rowIndex * (P5Adapter.canvasSize / adapter.pixels), point.columnIndex * (P5Adapter.canvasSize / adapter.pixels), P5Adapter.canvasSize / adapter.pixels, P5Adapter.canvasSize / adapter.pixels);
+        }
+    )
 }
 
 function mouseDragged() {
