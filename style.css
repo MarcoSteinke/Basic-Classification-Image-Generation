@@ -1,6 +1,6 @@
 body {
     margin-top: 64px;
-    background: rgb(60,60,60);
+    background: rgb(22, 22, 22);
     text-align: center;
 }
 
@@ -8,8 +8,19 @@ body>* {
     margin: auto;
 }
 
-h2 {
+h2, h3 {
     margin-top: 18px;
     margin-bottom: 36px;
-    color: rgb(220,220,220);
+    color: rgb(62, 123, 255);
+}
+
+#instructions {
+    color: lightgray;
+    font-size: 1.44rem;
+    max-width: 400px;
+}
+
+.news {
+    background-color: green;
+    padding: 8px 16px 16px 8px;
 }

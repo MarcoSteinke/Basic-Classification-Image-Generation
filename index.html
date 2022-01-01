@@ -5,11 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="P5Adapter.js"></script>
     <title>Basic classification image generator</title>
 </head>
 <body>
     <h2>Classification image generator</h2>
+    <hr>
+    <div id="instructions">
+        <h3>Instructions:</h3>
+        <div>
+            (1) Draw an input which includes the important features to classify
+            an image using convolutional neural networks.
+            <br><br>
+            (2) Next step is to insert a label using the following input.
+            <br><br>
+            (3) Use the "save"-button to save the input as image file.
+            <br><br>
+            (4) Use the "generate"-button to generate another image by learning from the previous ones with the very same label.
+            <br><br>
+            <div class="news">
+                <i class="fa fa-exclamation" aria-hidden="true"></i>
+                <br>
+                In the future there will be a feature to download a ZIP-file containing a chosen amount of generated inputs with a certain label.
+            </div>
+        </div>
+    </div>
 </body>
 </html>

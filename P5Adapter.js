@@ -1,7 +1,7 @@
 class P5Adapter {
 
     static canvasSize = 500;
-    static backgroundColor = 220;
+    static backgroundColor = 255;
 
     constructor(pixels) {
         this.pixels = pixels;
@@ -74,7 +74,8 @@ class Grid {
 let adapter = new P5Adapter(128);
 
 function setup() {
-    noStroke()
+    noStroke();
+    noLoop();
     createCanvas(P5Adapter.canvasSize, P5Adapter.canvasSize);
 }
 
@@ -82,6 +83,7 @@ function setup() {
 function drawGrid(grid) {
     grid.forEach(
         point => {
+            fill(0)
             rect(point.rowIndex * (P5Adapter.canvasSize / adapter.pixels), point.columnIndex * (P5Adapter.canvasSize / adapter.pixels), P5Adapter.canvasSize / adapter.pixels, P5Adapter.canvasSize / adapter.pixels);
         }
     )
@@ -97,11 +99,11 @@ function mouseClicked() {
 
 function performDraw(adapter) {
     adapter.addData(Math.floor(mouseX/(P5Adapter.canvasSize / adapter.pixels)), (Math.floor(mouseY/(P5Adapter.canvasSize / adapter.pixels))), 1);
+    drawGrid(adapter.getGridInformation());
 }
 
 function draw() {
   background(P5Adapter.backgroundColor);
-  drawGrid(adapter.getGridInformation());
 }
 
 
