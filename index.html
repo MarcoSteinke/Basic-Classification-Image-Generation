@@ -6,12 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="P5Adapter.js"></script>
     <title>Basic classification image generator</title>
 </head>
 <body>
+    <nav class="nav">
+        <li class="nav-item">
+            <a class="nav-link active" href="#"><button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button></a>
+        </li>
+    </nav>
+    <br><br>
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+        <a href="#" class="w3-bar-item w3-button">Link 1</a>
+        <a href="#" class="w3-bar-item w3-button">Link 2</a>
+        <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    </div>
     <h2>Classification image generator</h2>
     <hr>
     <div id="instructions">
@@ -51,5 +64,14 @@
             </div>
         </div>
     </div>
+    <script>
+        function w3_open() {
+          document.getElementById("mySidebar").style.display = "block";
+        }
+        
+        function w3_close() {
+          document.getElementById("mySidebar").style.display = "none";
+        }
+    </script>
 </body>
 </html>

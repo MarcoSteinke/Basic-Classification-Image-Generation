@@ -20,6 +20,15 @@ h2, h3 {
     max-width: 500px;
 }
 
+nav {
+    z-index: 99;
+    position: fixed;
+}
+
+#mySidebar {
+    width: 400px !important;
+}
+
 .news {
     background-color: green;
     padding: 8px 16px 16px 8px;
